@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import figlet from 'figlet';
-import { createServer } from 'http';
-import server from './server.js';
-import config from './config.js';
-import { ServerError } from '../common/errors.js';
+import figlet from "figlet";
+import { createServer } from "http";
+import server from "./server.js";
+import config from "./config.js";
+import { ServerError } from "../common/errors.js";
 
 /**
  * Function to start up application.
@@ -19,15 +19,15 @@ async function bootstrap() {
 
 /* eslint-disable no-useless-escape */
 bootstrap()
-.then(async server => {
+  .then(async server => {
     figlet.text(
-      process.env.npm_package_name,
+      process.env.NPM_PACKAGE_NAME,
       {
-        font: 'Sub-Zero',
+        font: "Sub-Zero"
       },
       function(err, bigName) {
         if (err) {
-          console.error('Something went wrong...');
+          console.error("Something went wrong...");
           console.error(err);
           return;
         }
@@ -35,15 +35,15 @@ bootstrap()
 ${bigName}
 🚀 Server listening on port ${server.address().port}!`);
         return;
-      },
+      }
     );
     return;
   })
   .catch(err => {
     setImmediate(() => {
       throw new ServerError(
-        'Unable to run the server because of the following error',
-        err,
+        "Unable to run the server because of the following error",
+        err
       );
     });
   });

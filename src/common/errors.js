@@ -1,20 +1,20 @@
-class FixmeError extends Error {
+class BaseError extends Error {
   constructor(message, cause) {
-    if (cause && 'message' in cause) {
+    if (cause && "message" in cause) {
       super(`${message}: ${cause.message}`);
     } else {
       super(message);
     }
-    this.name = 'FixmeError';
+    this.name = "BaseError";
     this.cause = cause;
   }
 }
 
-export class HttpError extends FixmeError {
+export class HttpError extends BaseError {
   constructor(status, message, cause) {
     super(`HTTP Error ${status}: ${message}`, cause);
     this.status = status;
-    this.name = 'HttpError';
+    this.name = "HttpError";
   }
 }
 export class BadRequestError extends HttpError {
