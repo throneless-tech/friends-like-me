@@ -2,9 +2,10 @@
   "name": "friends-like-me",
   "version": "1.0.0",
   "description": "An application to connect transgender youth with volunteer mentors.",
-  "main": "index.js",
   "scripts": {
-    "start:dev": "parcel src/frontend/index.html src/backend/index.js",
+    "db:init": "prisma init",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev --name init",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,52 +21,13 @@
   "engines": {
     "node": ">=16.0"
   },
-  "targets": {
-    "frontend": {
-      "source": "frontend/index.html"
-    },
-    "backend": {
-      "source": "backend/index.js"
-    }
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "prisma": "^3.7.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   },
   "dependencies": {
-    "figlet": "^1.5.2",
-    "joi": "^17.5.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {
-    "koa": "^2.13.4",
-    "parcel": "^2.0.1"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2020,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:jest/recommended",
-      "plugin:node/recommended-module",
-      "plugin:prettier/recommended",
-      "plugin:promise/recommended",
-      "plugin:react/recommended"
-    ],
-    "env": {
-      "es2017": true,
-      "browser": true,
-      "node": true,
-      "jest/globals": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    }
+    "@prisma/client": "^3.7.0"
   }
 }
