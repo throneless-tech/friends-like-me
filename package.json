@@ -6,6 +6,10 @@
     "db:init": "prisma init",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev --name init",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,11 +27,17 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
+    "@types/react": "^17.0.38",
+    "eslint": "8.6.0",
+    "eslint-config-next": "12.0.7",
     "prisma": "^3.7.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@prisma/client": "^3.7.0"
+    "@prisma/client": "^3.7.0",
+    "next": "12.0.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }
